@@ -26,4 +26,9 @@
         SET name = #{name}
         WHERE id = #{id}
     </update>
+    
+    <select id="countUsers" resultType="int">
+        SELECT count(*)
+        FROM users
+    </select>
 </mapper>

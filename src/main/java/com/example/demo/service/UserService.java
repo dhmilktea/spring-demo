@@ -20,4 +20,8 @@ public class UserService {
     public User getById(Long id) {
         return mapper.findById(id);
     }
+
+    public int countUsers() {
+        return mapper.countUsers();
+    }
 }
