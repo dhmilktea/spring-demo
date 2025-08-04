@@ -31,4 +31,21 @@
         SELECT count(*)
         FROM users
     </select>
+
+    <insert id="addAll" parameterType="java.util.List"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (name, email)
+        VALUES
+        <foreach collection="users" item="u" separator=",">
+            (#{u.name}, #{u.email})
+        </foreach>
+    </insert>
+
+    <insert id="addAllByMap" parameterType="java.util.List">
+        INSERT INTO users (name, email)
+        VALUES
+        <foreach collection="users" item="m" separator=",">
+            (#{m.name}, #{m.email})
+        </foreach>
+    </insert>
 </mapper>

@@ -12,6 +12,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -34,6 +35,16 @@ public class UserController extends QuartzJobBean {
     @GetMapping("/{id}")
     public User one(@PathVariable Long id) {
         return service.getById(id);
+    }
+
+    @PostMapping("/bulk")
+    public void createBulk(@RequestBody List<User> users) {
+        service.createBulk(users);
+    }
+
+    @PostMapping("/bulk-map")
+    public void createBulkMap(@RequestBody List<Map<String, Object>> users) {
+        service.createBulkMap(users);
     }
 
     @Scheduled(cron = "#{myProperties.cron}")

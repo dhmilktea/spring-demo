@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -23,5 +24,13 @@ public class UserService {
 
     public int countUsers() {
         return mapper.countUsers();
+    }
+
+    public void createBulk(List<User> users) {
+        mapper.addAll(users);
+    }
+
+    public void createBulkMap(List<Map<String, Object>> users) {
+        mapper.addAllByMap(users);
     }
 }

@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface UserMapper {
@@ -15,4 +16,8 @@ public interface UserMapper {
     void updateName(User user);
 
     int countUsers();
+
+    void addAll(List<User> users);
+
+    void addAllByMap(List<Map<String, Object>> users);
 }
