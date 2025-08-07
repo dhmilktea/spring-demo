@@ -10,7 +10,18 @@
         <result property="email" column="email"/>
     </resultMap>
 
+    <resultMap id="UserMapIntoMap" type="java.util.Map">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
     <select id="findAll" resultMap="UserMap">
+        SELECT *
+        FROM users
+    </select>
+
+    <select id="findAllMap" resultMap="UserMapIntoMap">
         SELECT *
         FROM users
     </select>

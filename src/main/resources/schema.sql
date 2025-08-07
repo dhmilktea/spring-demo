@@ -4,3 +4,12 @@ CREATE TABLE users (
      name VARCHAR(100) NOT NULL,
 email VARCHAR(160) UNIQUE NOT NULL
 );
+
+
+DROP TABLE IF EXISTS enriched_users;
+CREATE TABLE enriched_users (
+       id BIGINT PRIMARY KEY AUTO_INCREMENT,
+       name VARCHAR(100) NOT NULL,
+       email VARCHAR(160) UNIQUE NOT NULL,
+       description VARCHAR(160) NULL
+);

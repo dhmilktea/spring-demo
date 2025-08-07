@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.EnrichedUserMapper">
+
+    <insert id="addByMap" parameterType="java.util.Map">
+        INSERT INTO demo.enriched_users (name, email, description)
+        VALUES
+        (#{name}, #{email}, #{description})
+    </insert>
+
+    <insert id="addAllByMap" parameterType="java.util.List">
+        INSERT INTO demo.enriched_users (name, email, description)
+        VALUES
+        <foreach collection="users" item="m" separator=",">
+            (#{m.name}, #{m.email}, #{m.description})
+        </foreach>
+    </insert>
+</mapper>

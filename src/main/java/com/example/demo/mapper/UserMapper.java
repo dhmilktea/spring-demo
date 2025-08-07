@@ -11,6 +11,8 @@ import java.util.Map;
 public interface UserMapper {
     List<User> findAll();
 
+    List<Map<String, Object>> findAllMap();
+
     User findById(@Param("id") Long id);
 
     void updateName(User user);
