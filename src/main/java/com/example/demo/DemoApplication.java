@@ -14,6 +14,7 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 		System.out.println("!!!!");
 		System.out.println("!!!!3");
+		System.out.println("!!!!2");
 	}
 
 }
